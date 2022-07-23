@@ -1,29 +1,44 @@
 package uz.jl;
 
-import uz.jl.exceptions.NotFoundException;
-
-import java.io.FileReader;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        System.out.println("in main method");
+        div(12, 0);
 
 //        try {
-//            FileReader fileReader = new FileReader("file.txt");
-//        } catch (Exception e) {
-//            System.out.println("File not found sorry bro, My bad 😒");
+//            div(12, 0);
+////            errorDB();
+//            callDBOperations();
+//            return;
+//        } catch (RuntimeException e) {
+//            System.out.println("Error occurred");
+//        } finally {
+//            closeDB();
 //        }
+
+    }
+
+    private static void closeDB() {
+        System.out.println("Closing database connection");
+    }
+
+    private static void callDBOperations() {
+        System.out.println("Inserting data to DB");
+    }
+
+    private static void errorDB() {
+        RuntimeException exception = new RuntimeException("Error");
+        throw exception;
+    }
+
+    static void div(int a, int b)  throws Exception{
         try {
-            int a = 12;
-            int b = 0;
             System.out.println(a / b);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (ArithmeticException e) {
+            throw new Exception("0 ga bolindi");
         }
-        System.out.println("Hello world");
-        sum(12D, 34L);
     }
 
-    public static void sum(Number a, Number b) {
 
-    }
 }
